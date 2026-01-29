@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>East Bay Grips - Training Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #d32f2f;
+            --primary-dark: #b71c1c;
+            --secondary: #1a1a1a;
+            --accent: #ff5722;
+            --gold: #ffc107;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #757575;
+            --dark-gray: #424242;
+            --shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+            --shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+            --shadow-heavy: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e8e8e8 100%);
+            line-height: 1.6;
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(26,26,26,0.8), rgba(26,26,26,0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><g fill="%23666"><circle cx="200" cy="150" r="40" opacity="0.3"/><circle cx="800" cy="400" r="50" opacity="0.2"/><circle cx="1000" cy="200" r="35" opacity="0.4"/><circle cx="300" cy="450" r="30" opacity="0.3"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 20px 40px;
+            border: none;
+            border-radius: 35px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-heavy);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 15px 30px;
+            border: 2px solid var(--white);
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--secondary);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: -50px auto 0;
+            padding: 0 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Member Access Section */
+        .member-access {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-heavy);
+            margin-bottom: 60px;
+            overflow: hidden;
+            border: 6px solid var(--gold);
+        }
+
+        .member-header {
+            background: linear-gradient(135deg, var(--gold), #ffb300);
+            color: var(--secondary);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title::first-letter {
+            font-size: 2.5rem;
+            margin-right: 8px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            padding: 40px;
+        }
+
+        .access-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .access-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .access-card:hover {
+            /* No hover effects since cards are informational only */
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-description {
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-note {
+            font-size: 0.8rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .about-header {
+            background: linear-gradient(135deg, var(--secondary), var(--dark-gray));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .about-content {
+            padding: 40px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .feature-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .feature-description {
+            color: var(--medium-gray);
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-medium);
+            overflow: hidden;
+        }
+
+        .contact-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .contact-content {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--medium-gray);
+            font-size: 0.9rem;
+            background: var(--white);
+            margin-top: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-light);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                margin: -20px auto 0;
+                padding: 0 15px 40px;
+            }
+            
+            .member-access {
+                margin-bottom: 40px;
+                border-radius: 12px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .access-grid {
+                padding: 20px;
+                gap: 16px;
+            }
+            
+            .access-card {
+                padding: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>East Bay Grips</h1>
+            <p>Judo • Brazilian Jiu-Jitsu • Wrestling • Building Community & Champions Together</p>
+            <div class="hero-buttons">
+                <a href="https://sites.google.com/adacloud.dev/ebg-member-portal" target="_blank" class="btn-primary">Member Portal</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Member Access Section -->
+        <div class="member-access" id="member-access">
+            <div class="member-header">
+                <h2 class="section-title">🥋 Member Portal</h2>
+                <p class="section-subtitle">Access exclusive training content and resources</p>
+            </div>
+            <div class="access-grid">
+                <div class="access-card">
+                    <div class="card-icon">🎥</div>
+                    <div class="card-title">Class Footage</div>
+                    <div class="card-description">Access recorded training sessions, technique breakdowns, and sparring analysis from our classes</div>
+                    <div class="card-note">Members Only</div>
+                </div>
+
+                <div class="access-card">
+                    <div class="card-icon">📅</div>
+                    <div class="card-title">Training Calendar</div>
+                    <div class="card-description">View complete schedule of classes, seminars, competitions, and special events</div>
+                    <div class="card-note">Members Only</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section" id="about">
+            <div class="about-header">
+                <h2 class="section-title">🥋 Training with Us</h2>
+            </div>
+            <div class="about-content">
+                <p style="font-size: 1.1rem; margin-bottom: 30px; color: var(--medium-gray);">
+                    A community-focused training group where members train together, learn from recorded sessions, and grow through Judo, Brazilian Jiu-Jitsu, and Wrestling.
+                </p>
+                <div class="about-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div class="feature-title">Structured Learning</div>
+                        <div class="feature-description">Progressive curriculum designed to build fundamentals and advanced techniques systematically</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🥋</div>
+                        <div class="feature-title">Multi-Art Training</div>
+                        <div class="feature-description">Judo, BJJ, and Wrestling - learn how these grappling arts complement each other for complete skill development</div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🤝</div>
+                        <div class="feature-title">Community</div>
+                        <div class="feature-description">Supportive training environment focused on mutual growth and respect</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 East Bay Grips Training Group • East Bay, CA<br>
+        Building Community • Judo • BJJ • Wrestling
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links (if any are added later)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
