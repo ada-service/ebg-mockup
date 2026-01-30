@@ -180,7 +180,6 @@
             padding: 32px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
@@ -199,14 +198,7 @@
         }
 
         .access-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-heavy);
-            border-color: var(--primary);
-            background: var(--white);
-        }
-
-        .access-card:hover::before {
-            transform: scaleX(1);
+            /* No hover effects since cards are informational only */
         }
 
         .card-icon {
@@ -364,7 +356,7 @@
             <h1>East Bay Grips</h1>
             <p>Judo • Brazilian Jiu-Jitsu • Wrestling • Building Community & Champions Together</p>
             <div class="hero-buttons">
-                <a href="#member-access" class="btn-primary">Member Portal</a>
+                <a href="https://sites.google.com/adacloud.dev/ebg-member-portal-mockup" target="_blank" class="btn-primary">Member Portal</a>
             </div>
         </div>
     </div>
@@ -377,24 +369,17 @@
                 <p class="section-subtitle">Access exclusive training content and resources</p>
             </div>
             <div class="access-grid">
-                <div class="access-card" onclick="window.open('https://sites.google.com/your-domain/eastbaygrips-footage', '_blank')">
+                <div class="access-card">
                     <div class="card-icon">🎥</div>
                     <div class="card-title">Class Footage</div>
                     <div class="card-description">Access recorded training sessions, technique breakdowns, and sparring analysis from our classes</div>
                     <div class="card-note">Members Only</div>
                 </div>
 
-                <div class="access-card" onclick="window.open('https://sites.google.com/your-domain/eastbaygrips-calendar', '_blank')">
+                <div class="access-card">
                     <div class="card-icon">📅</div>
                     <div class="card-title">Training Calendar</div>
                     <div class="card-description">View complete schedule of classes, seminars, competitions, and special events</div>
-                    <div class="card-note">Members Only</div>
-                </div>
-
-                <div class="access-card" onclick="window.open('https://sites.google.com/your-domain/eastbaygrips-resources', '_blank')">
-                    <div class="card-icon">📚</div>
-                    <div class="card-title">Training Resources</div>
-                    <div class="card-description">Technique guides, competition information, equipment recommendations, and study materials</div>
                     <div class="card-note">Members Only</div>
                 </div>
             </div>
