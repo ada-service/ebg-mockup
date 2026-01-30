@@ -427,20 +427,19 @@
         Building Community • Judo • BJJ • Wrestling
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // Smooth scrolling for anchor links
+    <script>
+        // Smooth scrolling for anchor links (if any are added later)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-
-        // Add click functionality notice
-        document.addEventListener('DOMContentLoaded', function() {
-            const memberCards = document.querySelectorAll('.access-card');
-            memberCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // In real
+    </script>
+</body>
+</html>
